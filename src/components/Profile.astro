@@ -4,13 +4,17 @@ import Separator from "./Separator.astro";
 import Link from "@/shared/Link.astro";
 
 ---
-<div class="md:flex md:justify-around h-full md:gap-80">
+<div class="md:flex md:justify-around md:gap-80">
     <div class="md:w-80 md:h-80 flex items-center flex-col gap-2">
         <img class="rounded-full" src="https://avatars.githubusercontent.com/u/75326612?v=4" alt="logo">
-        <h1 class="text-gray-200 text-2xl">Fullstack developer</h1>
+        <h1 class="text-gray-200 text-2xl md:mb-1">Fullstack developer</h1>
     </div>
     <div class="md:w-3/5 md:mr-40">
-        <p class="text-gray-300 text-xl">Lorem ipsum, <span class="text-purple-500">Fullstack developer</span> dolor sit amet consectetur adipisicing elit. Quis voluptatibus ratione dignissimos id eaque magni ab harum sunt a eligendi omnis <span class="text-purple-500">help people</span>, odit perspiciatis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta maiores voluptatem ea animi qui sapiente in facere, ducimus ratione perspiciatis officiis omnis similique optio ad, nemo at inventore sed veniam Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis voluptatibus ratione dignissimos id eaque magni ab harum sunt a eligendi omnis sed consectetur nemo hic quasi qui eius, odit perspiciatis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta maiores voluptatem ea animi qui sapiente in facere, ducimus ratione perspiciatis officiis omnis similique optio ad, nemo at inventore sed veniam</p>
+        <p class="text-gray-400 text-2xl">Hi there, I'm <span class="text-purple-500 hover:text-purple-600 transition-all">Thiago Mota</span>, Fullstack developer </p>
+        <p class="text-gray-300 text-xl mt-1"> 
+
+          I'm really into technology and currently studying web development to kickstart my career. I love problem-solving and enjoy taking on new challenges. If you have any cool projects or freelance opportunities, don't hesitate to reach out! 
+        </p>
         <ul role="list" class="flex flex-row gap-2 mt-4">
             {
               presentation.socials.map((social, index) => (
