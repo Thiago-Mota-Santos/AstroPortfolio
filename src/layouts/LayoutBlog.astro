@@ -1,18 +1,25 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import FormattedDate from "@/components/FormattedDate.astro";
+import AstroLayout from "./astroLayout.astro";
+import BaseHead from "@/components/BaseHead.astro";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import BlurCircle from "@/shared/BlurCircle.astro";
+import { theme } from "tailwind.config.cjs";
+import Separator from "@/components/Separator.astro";
 
-type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const headTags = Astro.props;
+
+
 ---
 
+
+<AstroLayout>
+    <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={headTags.title} description={headTags.description} />
 		<style>
 			main {
 				width: calc(100% - 2em);
@@ -43,6 +50,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			}
 			.title h1 {
 				margin: 0 0 0.5em 0;
+                color: rgb(212 212 212);
 			}
 			.date {
 				margin-bottom: 0.5em;
@@ -54,32 +62,32 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		</style>
 	</head>
 
-	<body>
-		<Header />
+	<body class="bg-neutral-950">
 		<main>
 			<article>
 				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
+					{headTags.heroImage && <img width={600} height={420} src={headTags.heroImage} alt="" />}
 				</div>
 				<div class="prose">
 					<div class="title">
 						<div class="date">
-							<FormattedDate date={pubDate} />
+							<FormattedDate date={headTags.pubDate} />
 							{
-								updatedDate && (
+								headTags.updatedDate && (
 									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
+										Last updated on <FormattedDate date={headTags.updatedDate} />
 									</div>
 								)
 							}
 						</div>
-						<h1>{title}</h1>
-						<hr />
+						<h1>{headTags.title}</h1>
+						<Separator/>
 					</div>
-					<slot />
+					<slot/>
 				</div>
 			</article>
 		</main>
 		<Footer />
 	</body>
 </html>
+</AstroLayout>
