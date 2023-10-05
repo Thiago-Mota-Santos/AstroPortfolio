@@ -1,50 +1,73 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Profile from '../components/Profile.astro';
+import AstroLayout from '@/layouts/astroLayout.astro';
+import ContentList from '@/components/ContentList.astro';
+import Separator from '@/components/Separator.astro';
+
+
+const response = await fetch ('https://dev.to/api/articles?username=thiagomotasantos');
+const data = await response.json();
+const content = data
+
+// export interface Props {
+//   cover_image: string;
+//   title: string;
+//   description: string;
+//   user: User;
+//   url: string;
+//   posted_on: string;
+//   public_reactions_count?: string;
+//   comments_count?: string;
+//   postType: "article" | "github"
+// }
+
+
+const projects = [
+	{
+		cover_image: "https://camo.githubusercontent.com/98b2a66093f2bf585d77cd47fbf91226cb3a30643e2d5f4e667530e2181efcad/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f3835393438333637383038323037323631362f313133383834333330393336343735363438302f734e65487566542e706e67",
+		title: "Appointment Graphic",
+		description: "Project that simulates a scheduling control panel for a graphic. Where can you manage appointments",
+		url: "https://github.com/Thiago-Mota-Santos/fullstack-relay",
+		postType: "github",
+
+	}
+]
+
 ---
 
-<!doctype html>
+<AstroLayout>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Header title={SITE_TITLE} />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to
-				build a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like
-				Tailwind, React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/pages/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
+		<main class="h-screen w-screen">
+			<Profile />
+			<section id="articles" class="mt-16">
+				<h1 class="text-4xl text-white font-bold mb-8">
+				  Projects
+				</h1>
+				<ContentList content={projects}/>
+			</section>
+
+			<section id="articles" class="mt-16">
+				<h1 class="text-4xl text-white font-bold mb-8">
+				  Open Source
+				</h1>
+				<ContentList content={projects}/>
+			</section>
+	
+			<section id="articles" class="mt-16">
+				<h1 class="text-4xl text-white font-bold mb-8">
+				  Articles
+				</h1>
+				<ContentList content={content}/>
+			</section>
 		<Footer />
+		</main>
 	</body>
 </html>
+</AstroLayout>
