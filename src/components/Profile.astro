@@ -1,13 +1,28 @@
-<div class="flex justify-around gap-80">
-    <div class="w-80 h-80 flex items-center flex-col gap-2">
+---
+import presentation from "@/utils/presentation";
+import Separator from "./Separator.astro";
+import Link from "@/shared/Link.astro";
+
+---
+<div class="md:flex md:justify-around h-full md:gap-80">
+    <div class="md:w-80 md:h-80 flex items-center flex-col gap-2">
         <img class="rounded-full" src="https://avatars.githubusercontent.com/u/75326612?v=4" alt="logo">
-        <h1 class="text-black text-2xl">Fullstack engineer</h1>
+        <h1 class="text-gray-200 text-2xl">Fullstack developer</h1>
     </div>
-    <div class="w-96 mr-40">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis voluptatibus ratione dignissimos id eaque magni ab harum sunt a eligendi omnis sed consectetur nemo hic quasi qui eius, odit perspiciatis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta maiores voluptatem ea animi qui sapiente in facere, ducimus ratione perspiciatis officiis omnis similique optio ad, nemo at inventore sed veniam </p>
+    <div class="md:w-3/5 md:mr-40">
+        <p class="text-gray-300 text-xl">Lorem ipsum, <span class="text-purple-500">Fullstack developer</span> dolor sit amet consectetur adipisicing elit. Quis voluptatibus ratione dignissimos id eaque magni ab harum sunt a eligendi omnis <span class="text-purple-500">help people</span>, odit perspiciatis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta maiores voluptatem ea animi qui sapiente in facere, ducimus ratione perspiciatis officiis omnis similique optio ad, nemo at inventore sed veniam Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis voluptatibus ratione dignissimos id eaque magni ab harum sunt a eligendi omnis sed consectetur nemo hic quasi qui eius, odit perspiciatis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta maiores voluptatem ea animi qui sapiente in facere, ducimus ratione perspiciatis officiis omnis similique optio ad, nemo at inventore sed veniam</p>
+        <ul role="list" class="flex flex-row gap-2 mt-4">
+            {
+              presentation.socials.map((social, index) => (
+                <>
+                  <li>
+                    <Link href={social.link} label={social.label} />
+                  </li>
+          
+                  {presentation.socials.length - 1 !== index && <li>/</li>}
+                </>
+              ))
+            }
+          </ul>
     </div>
-    
-
 </div>
-
-

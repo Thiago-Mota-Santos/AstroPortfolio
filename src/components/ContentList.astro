@@ -1,0 +1,29 @@
+---
+import Content from "./Content.astro";
+
+
+interface Props {
+  content: any;
+}
+
+
+const { content } = Astro.props
+---
+
+<div class="flex justify-center">
+    <div class="flex flex-col lg:grid lg:grid-cols-3 gap-y-8 w-full lg:gap-x-10">
+      {content.map((content) => (
+        <Content
+          cover_image={content.cover_image}
+          title={content.title}
+          user={content.user}
+          url={content.url}
+          description={content.description}
+          posted_on={content.posted_on}
+          public_reactions_count={content.public_reactions_count} 
+          comments_count={content.comments_count}
+          postType={content.postType}         
+          />
+      ))}
+    </div>
+</div>
