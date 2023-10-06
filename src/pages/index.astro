@@ -5,25 +5,21 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Profile from '../components/Profile.astro';
 import AstroLayout from '@/layouts/astroLayout.astro';
 import ContentList from '@/components/ContentList.astro';
-import Separator from '@/components/Separator.astro';
 
 
 const response = await fetch ('https://dev.to/api/articles?username=thiagomotasantos');
 const data = await response.json();
 const content = data
 
-// export interface Props {
-//   cover_image: string;
-//   title: string;
-//   description: string;
-//   user: User;
-//   url: string;
-//   posted_on: string;
-//   public_reactions_count?: string;
-//   comments_count?: string;
-//   postType: "article" | "github"
-// }
-
+const openSource = [
+	{
+		cover_image: "https://www.sinnples.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.4e76c802.png&w=640&q=75",
+		description: "Application that allows users in an apartment complex to recommend services to each other.",
+		title: "Sinnples",
+		url: "https://github.com/finntechnologies/sinnples",
+		postType: "github"
+	}
+]
 
 const projects = [
 	{
@@ -32,7 +28,20 @@ const projects = [
 		description: "Project that simulates a scheduling control panel for a graphic. Where can you manage appointments",
 		url: "https://github.com/Thiago-Mota-Santos/fullstack-relay",
 		postType: "github",
-
+	},
+	{
+		cover_image: "https://content.pymnts.com/wp-content/uploads/2022/02/Solana-Pay-cryptocurrency-blockchain.jpg",
+		title: "Solana Pay Shop",
+		description: "An online store where you can download my favorite arts for coins",
+		url: "https://github.com/Thiago-Mota-Santos/Solana-pay-shop",
+		postType: "github",
+	},
+	{
+		cover_image: "https://images.unsplash.com/photo-1584091377126-3817650725fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+		title: "Mini Notification Service",
+		description: "A notification service, using some architectural principles built with Nest and Prisma.",
+		url: "https://github.com/Thiago-Mota-Santos/Miniservice-notification",
+		postType: "github",
 	}
 ]
 
@@ -57,7 +66,7 @@ const projects = [
 				<h1 class="text-4xl text-white font-bold mb-8">
 				  Open Source
 				</h1>
-				<ContentList content={projects}/>
+				<ContentList content={openSource}/>
 			</section>
 	
 			<section id="articles" class="mt-16">
