@@ -1,5 +1,5 @@
 ---
-import Layout from '@/layouts/Layout.astro';
+import LayoutBlog from '@/layouts/LayoutBlog.astro';
 import { type CollectionEntry, getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -15,6 +15,6 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Layout {...post.data}>
+<LayoutBlog {...post.data}>
 	<Content />
-</BlogPost>
+</LayoutBlog>
