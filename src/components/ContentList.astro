@@ -1,9 +1,19 @@
 ---
-import Content from "./Content.astro";
+import Content, { type User } from "./Content.astro";
 
 
 interface Props {
-  content: any;
+  content: {
+  cover_image: string;
+  title: string;
+  description: string;
+  user: User;
+  url: string;
+  posted_on: string;
+  public_reactions_count?: string;
+  comments_count?: string;
+  postType: "article" | "github"
+  }[]
 }
 
 
