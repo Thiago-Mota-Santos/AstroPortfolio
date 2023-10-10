@@ -1,0 +1,98 @@
+---
+import AstroLayout from '@/layouts/AstroLayout.astro';
+import * as CONTENT from '../content/content'
+import AccordionLayout from "../layouts/AccordionLayout.astro";
+import Card from "./Card.astro";
+---
+<AstroLayout>
+<ul class="shadow-box">
+  <AccordionLayout title={"About"} icon={"mdi:account-badge-outline"}>
+    {CONTENT.about}
+  </AccordionLayout>
+
+    <AccordionLayout title={"Projects"} icon={"ion:md-build"}>
+      {
+        CONTENT.projects.map((item) => {
+          return (
+            <Card
+              title={item.title}
+              timeframe="2022-2023"
+              description={item.description}
+              url={item.url}
+              url_name={"Open Project"}
+            />
+          );
+        })
+      }
+    </AccordionLayout>
+
+    <AccordionLayout title={"Open Source"} icon={"ri:open-source-fill"}>
+      {
+        CONTENT.openSource.map((item) => {
+          return (
+            <Card
+              title={item.title}
+              timeframe="2022-2023"
+              description={item.description}
+              url={item.url}
+              url_name={"Open Project"}
+            />
+          );
+        })
+      }
+    </AccordionLayout>
+
+    <AccordionLayout title={"Education"} icon={"carbon:education"}>
+      {
+        CONTENT.education.map((item) => {
+          return (
+            <Card
+              title={item.course}
+              timeframe={`${item.from} - ${item.to}`}
+              description={item.location}
+              tags={""}
+              url={"#"}
+              status={item.status}
+              url_name={item.institute}
+            />
+          );
+        })
+      }
+    </AccordionLayout>
+
+    <AccordionLayout title={"Certifications"} icon={"carbon:certificate"}>
+      {
+        CONTENT.certificates.map((item) => {
+          return (
+            <Card
+              title={item.title}
+              timeframe={item.issued}
+              description={item.org}
+              tags={item.description}
+              url={item.url}
+              url_name={"View Certificate"}
+            />
+          );
+        })
+      }
+    </AccordionLayout>
+
+
+    <!-- <AccordionLayout title={"Achievements"} icon={"mdi:trophy-award"}>
+      {
+        CONTENT.achievements.map((item) => {
+          return (
+            <Card
+              title={item.title}
+              timeframe={item.year}
+              description={item.decription}
+              tags=""
+              url="#"
+              url_name=""
+            />
+          );
+        })
+      }
+    </AccordionLayout> -->
+</ul>
+</AstroLayout>

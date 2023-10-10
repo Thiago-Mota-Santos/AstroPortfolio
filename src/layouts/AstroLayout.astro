@@ -1,20 +1,18 @@
 ---
-import Header from "../components/Header.astro";
 
 import BlurCircle from "@/shared/BlurCircle.astro";
 import theme from "@/utils/theme";
 
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 
   <body
     class="bg-neutral-950 px-2 text-neutral-400 md:gap-20 md:py-4"
   >
-    <Header />
     <BlurCircle position="top" color={theme.colors.blur.top} />
     <BlurCircle position="bottom" color={theme.colors.blur.bottom} />
+    
     <slot />
     <style is:global>
       html {
