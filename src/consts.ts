@@ -3,4 +3,4 @@
 
 export const SITE_TITLE = 'Thiago Mota';
 export const HEADER_TITLE = '<Thiago />'
-export const SITE_DESCRIPTION = 'Welcome to my website!';
+export const SITE_DESCRIPTION = 'Welcome to my portfolio site!';

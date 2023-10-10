@@ -8,6 +8,8 @@ import BaseHead from "@/components/BaseHead.astro";
 import Icon from "astro-icon";
 import pdf from '../pdf/CV - Thiago Mota dos Santos (eng).pdf'
 
+
+export const prerender = true
 ---
 <html lang="en">
 	<head>
@@ -19,7 +21,7 @@ import pdf from '../pdf/CV - Thiago Mota dos Santos (eng).pdf'
 		<div class="flex items-center justify-center mt-10">
 			<button type="button" class="flex items-center w-50 h-30 text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">				
 				<Icon class="w-6 h-6" name="ic:baseline-download"/>
-				<a class="text-gray-200" href={pdf} download="Thiago CV">PDF DOWNLOAD</a> 
+				<a class="text-gray-200" href={pdf} download="Thiago CV">CV DOWNLOAD</a> 
 			</button>
 		</div>
 		<!-- Bar Effect -->
