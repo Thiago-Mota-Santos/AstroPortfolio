@@ -66,6 +66,13 @@ const openSource = [
 		title: "Sinnples",
 		url: "https://github.com/finntechnologies/sinnples",
 		postType: "github"
+	},
+	{
+		cover_image: "https://cdn.discordapp.com/attachments/859483678082072616/1183574072752353340/image.png?ex=6588d440&is=65765f40&hm=c07bca4903b26645cdf7a908721815ff6026fcc0e78957c9a2b071882b444154&",
+		description: "Application to make QRCODE pix quickly and practically",
+		title: "Pagarmepix",
+		url: "https://github.com/Thiago-Mota-Santos/pagarmepix",
+		postType: "github"
 	}
 ]
 
@@ -78,7 +85,7 @@ const projects = [
 		postType: "github",
 	},
 	{
-		cover_image: "https://content.pymnts.com/wp-content/uploads/2022/02/Solana-Pay-cryptocurrency-blockchain.jpg",
+		cover_image: "https://classic.exame.com/wp-content/uploads/2021/09/Solana-1.jpg?quality=70&strip=info&w=1024",
 		title: "Solana Pay Shop",
 		description: "An online store where you can download my favorite arts for coins",
 		url: "https://github.com/Thiago-Mota-Santos/Solana-pay-shop",
